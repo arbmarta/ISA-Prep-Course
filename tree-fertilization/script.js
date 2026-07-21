@@ -104,8 +104,8 @@
     const colKHeader = document.getElementById("colKHeader");
     if (colWeightHeader) colWeightHeader.textContent = `Bag weight (${practiceUnit})`;
     if (colNHeader) colNHeader.textContent = `${practiceUnit} of N`;
-    if (colPHeader) colPHeader.textContent = `${practiceUnit} of available phosphate`;
-    if (colKHeader) colKHeader.textContent = `${practiceUnit} of soluble potash`;
+    if (colPHeader) colPHeader.textContent = `${practiceUnit} of P`;
+    if (colKHeader) colKHeader.textContent = `${practiceUnit} of K`;
 
     practiceRows.innerHTML = "";
     practiceRowsState.forEach((row, index) => {
