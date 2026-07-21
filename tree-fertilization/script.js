@@ -195,9 +195,8 @@
     if (lbLabel) lbLabel.classList.toggle("active", practiceUnit === "lb");
     const hintText = document.getElementById("practiceUnitHint");
     if (hintText) {
-      hintText.textContent = `Using the bag weight and guaranteed analysis, enter the amount of nitrogen, phosphorus, and potassium in ${practiceUnit === "kg" ? "kilograms" : "pounds"}. Decimals are allowed. 
-      
-      The first row is completed as an example.`;
+      hintText.textContent = `Using the bag weight and guaranteed analysis, enter the amount of nitrogen, phosphorus, and potassium in ${practiceUnit === "kg" ? "kilograms" : "pounds"}. Decimals are allowed.
+The first row is completed as an example.`;
     }
     buildPracticeTable();
     renderExampleRow();
