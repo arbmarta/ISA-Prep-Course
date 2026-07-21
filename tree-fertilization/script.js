@@ -94,24 +94,6 @@
     if (kCell) kCell.textContent = nutrientAmountInPracticeUnit(exampleRowData.bag, exampleRowData.k);
   }
 
-  function renderWorkedExample() {
-    const w = round1(exampleRowData.bag / KG_PER_LB);
-    const nAmount = round1((w * exampleRowData.n) / 100);
-    const pAmount = round1((w * exampleRowData.p) / 100);
-    const kAmount = round1((w * exampleRowData.k) / 100);
-
-    const intro = document.getElementById("workedExampleIntro");
-    if (intro) {
-      intro.textContent = `A ${w} lb bag of ${exampleRowData.n}\u2013${exampleRowData.p}\u2013${exampleRowData.k} fertilizer contains:`;
-    }
-    const nLine = document.getElementById("workedExampleN");
-    if (nLine) nLine.innerHTML = `Nitrogen: ${w} \u00d7 ${exampleRowData.n} \u00f7 100 = <strong>${nAmount} lb</strong>`;
-    const pLine = document.getElementById("workedExampleP");
-    if (pLine) pLine.innerHTML = `Available phosphate: ${w} \u00d7 ${exampleRowData.p} \u00f7 100 = <strong>${pAmount} lb</strong>`;
-    const kLine = document.getElementById("workedExampleK");
-    if (kLine) kLine.innerHTML = `Soluble potash: ${w} \u00d7 ${exampleRowData.k} \u00f7 100 = <strong>${kAmount} lb</strong>`;
-  }
-
   function buildPracticeTable() {
     const colWeightHeader = document.getElementById("colWeightHeader");
     const colNHeader = document.getElementById("colNHeader");
@@ -189,7 +171,6 @@
     practiceRowsState = pickPracticeRows();
     buildPracticeTable();
     renderExampleRow();
-    renderWorkedExample();
     const scoreValue = document.getElementById("scoreValue");
     const feedback = document.getElementById("feedback");
     const hint = document.getElementById("hint");
@@ -217,7 +198,6 @@
     }
     buildPracticeTable();
     renderExampleRow();
-    renderWorkedExample();
     const scoreValue = document.getElementById("scoreValue");
     const feedback = document.getElementById("feedback");
     if (scoreValue) scoreValue.textContent = "0";
