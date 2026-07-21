@@ -166,7 +166,7 @@ button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .feedback:empty { display: none; }
 .feedback.good { color: var(--good); background: var(--good-bg); }
 .feedback.needs-work { color: var(--bad); background: var(--bad-bg); }
-.hint { background: #fff8df; border: 1px solid #ead796; }
+.hint { background: #fff8df; border: 1px solid #ead796; white-space: pre-line; }
 .label-quiz { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 28px; margin-top: 18px; }
 .bag-svg-wrap { flex: 0 0 200px; max-width: 200px; }
 .bag-svg-wrap svg, .bag-svg-wrap img { width: 100%; height: auto; display: block; }
