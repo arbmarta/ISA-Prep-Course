@@ -143,6 +143,9 @@ th { background: #eef4ed; font-size: .94rem; }
 tbody tr:last-child td { border-bottom: 0; }
 .soil-table td:first-child, .soil-table th:first-child { text-align: left; }
 
+.triangle-figure { margin: 20px 0; text-align: center; }
+.triangle-figure img { max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px; }
+.triangle-figure figcaption { margin-top: 8px; font-size: .85rem; color: var(--muted); }
 .answer-input, .bag-answer {
   width: 100%;
   min-width: 92px;
