@@ -85,27 +85,15 @@
       <section class="card" aria-labelledby="practice-heading">
         <div class="section-heading">
           <div><h2 id="practice-heading">Complete the table</h2><p id="practiceUnitHint">Enter answers in kilograms. Decimals are allowed.</p></div>
-          <div class="section-heading-right">
-            <div class="unit-toggle" role="group" aria-label="Units for the practice table">
-              <span id="practiceUnitLabelKg" class="unit-toggle-label">kg</span>
-              <button type="button" id="practiceUnitToggle" class="switch" role="switch" aria-checked="false" aria-label="Toggle practice table units between kilograms and pounds"></button>
-              <span id="practiceUnitLabelLb" class="unit-toggle-label">lb</span>
-            </div>
-            <div class="score" aria-live="polite">Score: <span id="scoreValue">0</span>/<span id="scoreTotal">15</span></div>
+          <div class="unit-toggle" role="group" aria-label="Units for the practice table">
+            <span id="practiceUnitLabelKg" class="unit-toggle-label">kg</span>
+            <button type="button" id="practiceUnitToggle" class="switch" role="switch" aria-checked="false" aria-label="Toggle practice table units between kilograms and pounds"></button>
+            <span id="practiceUnitLabelLb" class="unit-toggle-label">lb</span>
           </div>
         </div>
         <div class="table-wrap">
           <table>
             <thead><tr><th id="colWeightHeader">Bag weight</th><th>Guaranteed analysis</th><th id="colNHeader">kg of N</th><th id="colPHeader">kg of available phosphate</th><th id="colKHeader">kg of soluble potash</th></tr></thead>
-            <tbody id="exampleRowBody">
-              <tr class="example-row">
-                <td id="exampleWeightCell">20 kg</td>
-                <td id="exampleAnalysisCell">10&ndash;6&ndash;3</td>
-                <td id="exampleNCell">2.0</td>
-                <td id="examplePCell">1.2</td>
-                <td id="exampleKCell">0.6</td>
-              </tr>
-            </tbody>
             <tbody id="practiceRows"></tbody>
           </table>
         </div>
