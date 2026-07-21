@@ -22,13 +22,15 @@
 
   // Pool of "how many bags" challenge scenarios, covering N, P, and K.
   // 2 are drawn at random each time the page loads or the challenge is reset.
+  // The full guaranteed analysis is shown, so students must identify which
+  // of the three numbers matches the nutrient asked about.
   const bagChallengePool = [
-    { nutrient: "n", needKg: 5, bagWeight: 20, percent: 10 },
-    { nutrient: "n", needKg: 8, bagWeight: 25, percent: 16 },
-    { nutrient: "n", needKg: 12, bagWeight: 50, percent: 20 },
-    { nutrient: "p", needKg: 3, bagWeight: 20, percent: 6 },
-    { nutrient: "p", needKg: 4, bagWeight: 25, percent: 4 },
-    { nutrient: "k", needKg: 2, bagWeight: 30, percent: 6 },
+    { nutrient: "n", needKg: 5, bagWeight: 20, n: 10, p: 6, k: 3 },
+    { nutrient: "n", needKg: 8, bagWeight: 25, n: 16, p: 4, k: 8 },
+    { nutrient: "n", needKg: 12, bagWeight: 50, n: 20, p: 0, k: 10 },
+    { nutrient: "p", needKg: 3, bagWeight: 20, n: 12, p: 12, k: 12 },
+    { nutrient: "p", needKg: 1, bagWeight: 30, n: 8, p: 2, k: 6 },
+    { nutrient: "k", needKg: 4, bagWeight: 25, n: 16, p: 4, k: 8 },
   ];
   const BAG_QUESTION_COUNT = 2;
   let currentBagQuestions = [];
@@ -228,12 +230,6 @@ Hint 2: Nutrient mass (${practiceUnit}) = bag mass (${practiceUnit}) \u00d7 nutr
 
   const bagQuestions = document.getElementById("bagQuestions");
 
-  function analysisPlaceholder(nutrientKey, percent) {
-    const parts = { n: "?", p: "?", k: "?" };
-    parts[nutrientKey] = percent;
-    return `${parts.n}\u2013${parts.p}\u2013${parts.k}`;
-  }
-
   function buildBagQuestions() {
     bagQuestions.innerHTML = "";
     currentBagQuestions.forEach((q, index) => {
@@ -242,7 +238,7 @@ Hint 2: Nutrient mass (${practiceUnit}) = bag mass (${practiceUnit}) \u00d7 nutr
       div.innerHTML = `
         <label for="bagAnswer${index}">
           A tree needs ${q.needKg} kg of ${nutrientNames[q.nutrient]}. Fertilizer comes in ${q.bagWeight} kg bags
-          labeled ${analysisPlaceholder(q.nutrient, q.percent)}. How many bags should be purchased?
+          labeled ${q.n}\u2013${q.p}\u2013${q.k}. How many bags should be purchased?
         </label>
         <div class="input-row">
           <input class="bag-answer" id="bagAnswer${index}" type="number" step="1" inputmode="numeric"
@@ -262,7 +258,8 @@ Hint 2: Nutrient mass (${practiceUnit}) = bag mass (${practiceUnit}) \u00d7 nutr
     currentBagQuestions.forEach((q, index) => {
       const input = document.getElementById(`bagAnswer${index}`);
       if (!input) return;
-      const kgPerBag = (q.bagWeight * q.percent) / 100;
+      const percent = q[q.nutrient];
+      const kgPerBag = (q.bagWeight * percent) / 100;
       const expected = Math.ceil(q.needKg / kgPerBag);
       const raw = input.value.trim();
       input.classList.remove("correct", "incorrect");
