@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive tree nutrition and fertilization worksheet">
+  <title>Tree Nutrition and Fertilization Practice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">Tree Nutrition</p>
+      <h1>Fertilizer Analysis Practice</h1>
+      <p class="intro">
+        Use each fertilizer bag's weight and guaranteed analysis to calculate the kilograms of nitrogen,
+        available phosphate, and soluble potash in the bag.
+      </p>
+    </header>
+
+    <section class="card instructions" aria-labelledby="instructions-heading">
+      <h2 id="instructions-heading">How to calculate each answer</h2>
+      <p><strong>Nutrient mass = bag mass × nutrient percentage ÷ 100</strong></p>
+      <div class="example">
+        <h3>Worked example</h3>
+        <p>A 20 kg bag of 10–6–3 fertilizer contains:</p>
+        <ul>
+          <li>Nitrogen: 20 × 10 ÷ 100 = <strong>2.0 kg</strong></li>
+          <li>Available phosphate: 20 × 6 ÷ 100 = <strong>1.2 kg</strong></li>
+          <li>Soluble potash: 20 × 3 ÷ 100 = <strong>0.6 kg</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="practice-heading">
+      <div class="section-heading">
+        <div>
+          <h2 id="practice-heading">Complete the table</h2>
+          <p>Enter answers in kilograms. Decimals are allowed.</p>
+        </div>
+        <div class="score" aria-live="polite">
+          Score: <span id="scoreValue">0</span>/<span id="scoreTotal">15</span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Bag weight</th>
+              <th scope="col">Guaranteed analysis</th>
+              <th scope="col">kg of N</th>
+              <th scope="col">kg of available phosphate</th>
+              <th scope="col">kg of soluble potash</th>
+            </tr>
+          </thead>
+          <tbody id="practiceRows"></tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <button id="checkButton" class="primary" type="button">Check answers</button>
+        <button id="hintButton" class="secondary" type="button">Show a hint</button>
+        <button id="resetButton" class="secondary" type="button">Reset</button>
+      </div>
+
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+      <div id="hint" class="hint" hidden></div>
+    </section>
+
+    <section class="card" aria-labelledby="bags-heading">
+      <h2 id="bags-heading">Challenge: How many bags are needed?</h2>
+      <p>
+        Calculate how many bags are needed to supply the required amount of actual nitrogen.
+        Round up when only full bags can be purchased.
+      </p>
+      <div id="bagQuestions" class="question-list"></div>
+      <div class="actions">
+        <button id="checkBagsButton" class="primary" type="button">Check challenge</button>
+        <button id="resetBagsButton" class="secondary" type="button">Reset challenge</button>
+      </div>
+      <div id="bagFeedback" class="feedback" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      <p>Tree Nutrition and Fertilization Worksheet</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
